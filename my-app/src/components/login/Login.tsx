@@ -16,6 +16,7 @@ import {
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { LoginForm } from './LoginStyles'
+import { useAppDispatch } from "../../app/hooks";
 <link
   rel="stylesheet"
   href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
@@ -27,7 +28,7 @@ export function Login() {
   const [password, setPassword] = useState("");
 //   const count = useSelector((state) => state.counter.value);
   // const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleChangeUserName = (event: any) => {
     setUserName(event.target.value);
@@ -43,7 +44,9 @@ export function Login() {
 
   // if the user is verified in the system then they can login
   if(res.data === true){
-    dispatch(logIn);
+      console.log('t3sting');
+    dispatch(logIn());
+    console.log("change?")
     history('/protected');
   }
     

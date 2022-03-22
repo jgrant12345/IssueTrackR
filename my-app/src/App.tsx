@@ -1,7 +1,7 @@
 import './App.css';
 import { Login } from './components/login/Login';
 import { Signup } from './components/Signup/Signup';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from './app/hooks';
 import { Sidebar } from './components/SideBar/Sidebar';
 import { WorkProgressHomePage } from './components/WorkProgressHomePage/WorkProgressHomePage';
 import {
@@ -13,11 +13,11 @@ import {
   Navigate,
   Outlet
 } from "react-router-dom";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 let check = false
 
 function App() {
-
+  
   const [isAuthenticated, setAuthenticated] = useState(false)
   
   return (
@@ -38,14 +38,13 @@ function App() {
   );
 }
 function RequireAuth(props : any){
-  // const isLoggedIn = useSelector(state => state.user.isLoggedIn)
+  const isLoggedIn = useAppSelector(state => state.user.isLoggedIn)
 
-  let auth = false;
-  // let location = useLocation();
-  // console.log(isLoggedIn)
-  // if(!isLoggedIn){
-  //   return <Navigate to = "/" state = {{from: location}} />
-  // }
+  let location = useLocation();
+  console.log(isLoggedIn)
+  if(!isLoggedIn){
+    return <Navigate to = "/" state = {{from: location}} />
+  }
   return <WorkProgressHomePage />
 }
 
