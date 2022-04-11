@@ -26,8 +26,7 @@ export function Login() {
   let location = useLocation();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-//   const count = useSelector((state) => state.counter.value);
-  // const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+  
   const dispatch = useAppDispatch();
 
   const handleChangeUserName = (event: any) => {
@@ -36,7 +35,7 @@ export function Login() {
   const handleChangePassword = (event: any) => {
     setPassword(event.target.value);
   };
-  const handleLogin = async (event:any) => {
+  const handleLogin = async (event: any) => {
       
    event.preventDefault();
     const res = await axios.get("http://localhost:3001/login", { params: { username: userName,

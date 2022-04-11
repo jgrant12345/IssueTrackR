@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const WorkProgressIssueContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   background: white;
   width: 300px;
   height: 150px;
@@ -25,3 +27,9 @@ display: inline-block;
   overflow: hidden;
   white-space: nowrap;
 `;
+
+export const Test = styled.div`
+display: block;
+width: 200px;
+background-color:yellow;
+`

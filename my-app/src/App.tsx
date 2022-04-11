@@ -38,10 +38,10 @@ function App() {
   );
 }
 function RequireAuth(props : any){
-  const isLoggedIn = useAppSelector(state => state.user.isLoggedIn)
+  const isLoggedIn : boolean = useAppSelector(state => state.user.isLoggedIn)
 
   let location = useLocation();
-  console.log(isLoggedIn)
+
   if(!isLoggedIn){
     return <Navigate to = "/" state = {{from: location}} />
   }
