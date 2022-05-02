@@ -12,7 +12,7 @@ export function WorkProgressIssue() {
   }
 
   const onDrag = (event) => {
-    console.log(event.clientX);
+    
    setNumber(event.clientX)
   }
   return (

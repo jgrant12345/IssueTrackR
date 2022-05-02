@@ -45,6 +45,7 @@ function RequireAuth(props : any){
   if(!isLoggedIn){
     return <Navigate to = "/" state = {{from: location}} />
   }
+  
   return <WorkProgressHomePage />
 }
 
